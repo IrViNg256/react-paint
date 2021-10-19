@@ -1,0 +1,9 @@
+﻿.celda {
+	width: 1.5rem;
+	height: 1.5rem;
+}
+
+.celda:hover {
+	cursor: pointer;
+}
+ 

@@ -1,0 +1,9 @@
+﻿#tablero {
+	display: flex;
+	align-items: center;
+	flex-direction: column;
+}
+ #celdas {
+	margin-bottom: 2rem;
+}
+ 
