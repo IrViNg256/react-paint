@@ -3,7 +3,7 @@ import Celda from './Celda'
 import '../css/Fila.css';
 
 function Fila(props) {
-  const { ancho, colorSeleccionado } = props;
+  const { ancho, colorSeleccionado, mouseDown } = props;
   let celdas = [];
 
   for(let i = 0; i < ancho; i++) {
@@ -11,6 +11,7 @@ function Fila(props) {
       <Celda
         key={i}
         colorSeleccionado={colorSeleccionado}
+        mouseDown={mouseDown}
       />
     );
   }

@@ -2,11 +2,18 @@ import React, { useState } from 'react';
 import '../css/Celda.css';
 
 function Celda(props) {
-  const { colorSeleccionado } = props;
+  const { colorSeleccionado, mouseDown } = props;
 
   const [colorCelda, setColorCelda] = useState("#fff");
   const [colorAnterior, setColorAnterior] = useState(colorCelda);
   const [puedeCambiar, setPuedeCambiar] = useState(true);
+
+  function handleOver(event) {
+    if(mouseDown === true) {
+      setColorCelda(colorSeleccionado);
+      setPuedeCambiar(false);
+    }
+  }
 
   function handleClick(event) {
     setColorCelda(colorSeleccionado);
@@ -30,6 +37,7 @@ function Celda(props) {
       className="celda"
       style={{backgroundColor: colorCelda}}
       onClick={handleClick}
+      onMouseOver={handleOver}
       onMouseEnter={handleMouseEnter}
       onMouseLeave={handleMouseLeave}
     >

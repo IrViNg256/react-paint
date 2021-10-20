@@ -4,7 +4,7 @@ import Fila from './Fila';
 import '../css/Tablero.css';
 
 function Tablero(props) {
-  const { ancho, alto, colorSeleccionado } = props;
+  const { ancho, alto, colorSeleccionado, mouseDown } = props;
   let filas = [];
   const tableroRef = useRef();
   const printRef = useRef();
@@ -15,6 +15,7 @@ function Tablero(props) {
         key={i}
         ancho={ancho}
         colorSeleccionado={colorSeleccionado}
+        mouseDown={mouseDown}
       />
     );
   }
