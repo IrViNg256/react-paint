@@ -1,12 +1,13 @@
 import React, { useRef } from 'react';
+import html2canvas from 'html2canvas';
 import Fila from './Fila';
-import { exportComponentAsPNG } from 'react-component-export-image';
 import '../css/Tablero.css';
 
 function Tablero(props) {
   const { ancho, alto, colorSeleccionado } = props;
   let filas = [];
   const tableroRef = useRef();
+  const printRef = useRef();
 
   for(let i = 0; i < alto; i++) {
     filas.push(
@@ -18,8 +19,11 @@ function Tablero(props) {
     );
   }
 
-  function handleClick(event) {
-    exportComponentAsPNG(tableroRef);
+  function handlePrint(event) {
+    printRef.current.innerHTML = '';
+    html2canvas(tableroRef.current).then(function(canvas) {
+        printRef.current.appendChild(canvas);
+      });
   }
 
   return (
@@ -27,8 +31,10 @@ function Tablero(props) {
       <div id="celdas" ref={tableroRef}>
         {filas}
       </div>
-      
-      <button className="boton" onClick={handleClick}>Imprimir imagen</button>
+      <button className="boton" onClick={handlePrint}>Imprimir imagen</button>
+      <div ref={printRef}>
+    
+      </div>
     </div>
   );
 }
