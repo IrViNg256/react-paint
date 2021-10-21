@@ -4,7 +4,7 @@ import Editor from './Editor'
 function App() {
   return (
     <div className="App">
-      <Editor />
+      <Editor /> {/* Agregar una instancia del componente editor */}
     </div>
   );
 }
